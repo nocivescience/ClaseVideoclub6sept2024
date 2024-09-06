@@ -73,19 +73,27 @@ class VideoClub:
         print(f"Pelicula {id_pelicula} no encontrada.")
         return None
 
-# Funcion del menú principal
+# Funcion del menú principal con manejo de errores
 def menu():
-    print("***VIDEO CLUB***")
-    print("1.- Crear socio")
-    print("2.- Eliminar socio")
-    print("3.- Crear pelicula")
-    print("4.- Eliminar pelicula")
-    print("5.- Arrendar pelicula")
-    print("6.- Devolver pelicula")
-    print("7.- Salir")
-    return int(input("Ingresa opción: "))
+    while True:
+        try:
+            print("\n***VIDEO CLUB***")
+            print("1.- Crear socio")
+            print("2.- Eliminar socio")
+            print("3.- Crear pelicula")
+            print("4.- Eliminar pelicula")
+            print("5.- Arrendar pelicula")
+            print("6.- Devolver pelicula")
+            print("7.- Salir")
+            opcion = int(input("Ingresa opción: "))
+            if 1 <= opcion <= 7:
+                return opcion
+            else:
+                print("Por favor, ingresa un número entre 1 y 7.")
+        except ValueError:
+            print("Error: Por favor, ingresa un número válido.")
 
-# Programa principal
+# Programa principal con control de entradas
 if __name__ == "__main__":
     video_club = VideoClub()
     opcion = 0
